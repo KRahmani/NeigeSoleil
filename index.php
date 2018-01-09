@@ -26,14 +26,14 @@
 
 						<!-- Logo -->
 							<div id="logo">
-								<h1><a href="index.html">Verti</a></h1>
+								<h1><a href="index.php">Neige And Soleil</a></h1>
 								<span>by HTML5 UP</span>
 							</div>
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.php">Welcome</a></li>
+									<li class="current"><a href="index.php">Acceuil</a></li>
 									<li>
 										<a href="#">Dropdown</a>
 										<ul>
