@@ -1,5 +1,17 @@
 <?php
-	include ("controleur/controleur.php");
+session_start();
+
+	require ("controleur/controleur.php");
+
+	if(isset($_POST['username']) && isset($_POST['password'])){
+                $cont = new Controleur();
+                //pour la sécurité contre les injections sql et les failles xss
+                $username = htmlspecialchars($_POST['username']);
+                $password = htmlspecialchars($_POST['password']);
+                $count = $cont->connexionProp($username, $password);
+                if ($count == 0)
+                    $_POST['false'] =  "yes";
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -69,23 +81,8 @@
 								<article>
 
 									<h2>Connexion</h2>
+                                    <?php include("vue/vueinscription.php"); ?>
 
-									 <?php 
-									 session_start();
-			include("vue/vueinscription.php");
-			if(isset($_POST['username']) && isset($_POST['password'])){
-				$unControleur = new Controleur ("localhost","iris","kahina","1005");
-				//pour la sécurité contre les injections sql et les failles xss
-				$username = mysql_real_escape_string(htmlspecialchars($_POST['username'])); 
-				$password = mysql_real_escape_string(htmlspecialchars($_POST['password']));
-				$count = $unControleur->connexionProp($username, $password);
-				if (count !== 0){
-					$_SESSION['username'] = $username;
-					header('Location: espaceProp.php');
-					
-				 }
-			}
-									 ?>
 
 								</article>
 
@@ -185,4 +182,12 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
+    <?php if (isset($_POST["false"])){?>
+    <script type="text/javascript">
+     document.getElementById("name_user").innerHTML = "Nom d'utilisateur ou mot de passe incorrect";
+     document.getElementById("name_user").style.color = "red";
+    </script>
+    <?php
+        unset($_POST["false"]);
+    }?>
 </html>
