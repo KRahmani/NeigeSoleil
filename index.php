@@ -27,7 +27,7 @@
 						<!-- Logo -->
 							<div id="logo">
 								<h1><a href="index.php">Neige And Soleil</a></h1>
-								<span>by HTML5 UP</span>
+								<!--<span>by </span> -->
 							</div>
 
 						<!-- Nav -->
@@ -65,8 +65,8 @@
 					<div id="banner" class="box container">
 						<div class="row">
 							<div class="7u 12u(medium)">
-								<h2>Hi. This is Verti.</h2>
-								<p>It's a free responsive site template by HTML5 UP</p>
+								<h2>Bienvenue, vous voulez préparer votre séjour ??.</h2>
+								<p>Pour voir le catalogue merci de vous inscrire ou de vous connecter.</p>
 							</div>
 							<div class="5u 12u(medium)">
 								<ul>
