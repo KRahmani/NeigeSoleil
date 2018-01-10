@@ -9,7 +9,7 @@
 	<body>
 		<?php
 			session_start();
-			include("vue/vueinscription.php");
+			include("vue/vueconnexion.php");
 			if(isset($_POST['username']) && isset($_POST['password'])){
 				$unControleur = new Controleur ("localhost","iris","kahina","1005");
 				//pour la sécurité contre les injections sql et les failles xss

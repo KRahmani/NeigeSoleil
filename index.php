@@ -17,16 +17,21 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body class="homepage">
-		<div id="page-wrapper">
 
+    <body>
+    <div style="margin-top: 1%;
+    text-align: center;">
+    <div id="logo">
+   <img src="n&s.png">
+    </div></div>
+		<div id="page-wrapper">
 			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
 						<!-- Logo -->
 							<div id="logo">
-								<h1><a href="index.php">Neige And Soleil</a></h1>
+                                <h1><a href="index.php">Neige&Soleil</a></h1>
 								<!--<span>by </span> -->
 							</div>
 
@@ -34,26 +39,10 @@
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="index.php">Acceuil</a></li>
-									<li>
-										<a href="#">Dropdown</a>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li>
-												<a href="#">Phasellus consequat</a>
-												<ul>
-													<li><a href="#">Lorem ipsum dolor</a></li>
-													<li><a href="#">Phasellus consequat</a></li>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam dolore nisl</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Veroeros feugiat</a></li>
-										</ul>
-									</li>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="connexion.php">Connexion</a></li>
+									<li><a href="left-sidebar.html">Appartements</a></li>
+									<li><a href="right-sidebar.html">Équipements</a></li>
+                                    <li><a href="right-sidebar.html">À propos de Nous</a></li>
+                                    <li><a href="right-sidebar.html">Nous contacter</a></li>
 								</ul>
 							</nav>
 
@@ -70,8 +59,8 @@
 							</div>
 							<div class="5u 12u(medium)">
 								<ul>
-									<li><a href="#" class="button big icon fa-arrow-circle-right">Ok let's go</a></li>
-									<li><a href="#" class="button alt big icon fa-question-circle">More info</a></li>
+									<li><a style = "font-size: 30px;" href="connexion_pro.php" class="button big icon fa-arrow-circle-right">Je suis propriétaire</a></li>
+									<li><a style = "font-size: 30px;" href="connexion.php" class="button alt big icon fa-arrow-circle-right">Je suis locataire</a></li>
 								</ul>
 							</div>
 						</div>

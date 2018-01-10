@@ -3,14 +3,20 @@ session_start();
 
 require ("controleur/controleur.php");
 
-if(isset($_POST['username']) && isset($_POST['password'])){
+if(isset($_POST['inscription'])){
     $cont = new Controleur();
-    //pour la sécurité contre les injections sql et les failles xss
-    $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
-    $count = $cont->connexion_Loc($username, $password);
-    if ($count == 0)
-        $_POST['false'] =  "yes";
+    //
+    $civilite = $_POST['civilite'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $mail = $_POST['mail'];
+    $address = $_POST['address'];
+    $code_postal = $_POST['code_postal'];
+    $ville = $_POST['ville'];
+    $telephone = $_POST['telephone'];
+    $mot_passe = $_POST['mot_passe'];
+    //
+    $count = $cont->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
 }
 ?>
 
@@ -64,21 +70,18 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     </div>
 
     <!-- Main -->
-    <div id="main-wrapper"><h1 id ="title_locataire">Je suis locataire</h1>
+    <div id="main-wrapper"><h1 id ="title_locataire">Inscription locataire</h1>
         <div class="container">
 
             <div id="container_connexion">
 
                 <!-- Content -->
                 <article>
-                    <h2 style="text-align: center;">Connexion</h2>
-                    <?php include("vue/vueconnexion.php"); ?>
+                    <?php include("vue/vueInscription.php"); ?>
                 </article>
-
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <div id="footer-wrapper">
         <footer id="footer" class="container">

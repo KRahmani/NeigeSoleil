@@ -8,7 +8,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     //pour la sécurité contre les injections sql et les failles xss
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
-    $count = $cont->connexion_Loc($username, $password);
+    $count = $cont->connexion_Pro($username, $password);
     if ($count == 0)
         $_POST['false'] =  "yes";
 }
@@ -30,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-<div style="margin-top: 1%;
+<div style="margin-top: 2%;
     text-align: center;">
     <div id="logo">
         <img src="n&s.png">
@@ -64,7 +64,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     </div>
 
     <!-- Main -->
-    <div id="main-wrapper"><h1 id ="title_locataire">Je suis locataire</h1>
+    <div id="main-wrapper"><h1 id ="title_locataire">Je suis propriétaire</h1>
         <div class="container">
 
             <div id="container_connexion">
@@ -72,7 +72,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                 <!-- Content -->
                 <article>
                     <h2 style="text-align: center;">Connexion</h2>
-                    <?php include("vue/vueconnexion.php"); ?>
+                    <?php include("vue/vueconnexion_pro.php"); ?>
                 </article>
 
             </div>
