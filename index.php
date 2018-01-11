@@ -1,4 +1,5 @@
 <?php
+require ("header_main.php");
 	include ("controleur/controleur.php");
 ?>
 
