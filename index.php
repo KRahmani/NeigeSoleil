@@ -42,8 +42,8 @@ require ("header_main.php");
 									<li class="current"><a href="index.php">Acceuil</a></li>
 									<li><a href="left-sidebar.html">Appartements</a></li>
 									<li><a href="right-sidebar.html">Équipements</a></li>
-                                    <li><a href="right-sidebar.html">À propos de Nous</a></li>
-                                    <li><a href="right-sidebar.html">Nous contacter</a></li>
+                                    <li id = "aproposdenous"><a>À propos de Nous</a></li>
+                                    <li id = "nouscontacter"><a>Nous contacter</a></li>
 								</ul>
 							</nav>
 
@@ -252,6 +252,7 @@ require ("header_main.php");
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
 
 	</body>
 </html>

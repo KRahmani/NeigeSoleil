@@ -3,6 +3,20 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+//for clique in a propos de nous
+$(document).ready( function () {
+	//la div ou on clique
+    $("#aproposdenous").click(function () {
+    	//la div ou on veut aller
+        $('html,body').animate({scrollTop: $("#main-wrapper").offset().top}, 'slow');
+    });
+    $("#nouscontacter").click(function () {
+        //la div ou on veut aller
+        $('html,body').animate({scrollTop: $("#footer-wrapper").offset().top}, 'slow');
+    });
+
+});
+
 
 (function($) {
 

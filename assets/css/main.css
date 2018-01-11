@@ -2013,6 +2013,10 @@
 /* Banner */
 
 	#banner {
+		background-image: url(http://www.neigeetsoleil.org/responsive/Responsive-Montchavin/phototheque/MONTCHAVIN-HIVER-1.jpg);
+		color: white;
+		background-repeat: no-repeat;
+		background-size: 100%;
 		position: relative;
 		padding: 4.5em;
 	}
@@ -2020,6 +2024,7 @@
 		#banner h2 {
 			font-size: 3.5em;
 			margin: 0.1em 0 0.35em 0;
+			color: white;
 		}
 
 		#banner p {
@@ -2042,6 +2047,9 @@
 
 			#banner .button.alt {
 				margin-bottom: 0;
+				font-size: 30px;
+				color: white;
+				background: #008000b3;
 			}
 
 		#banner ul {
