@@ -6,6 +6,7 @@
 //for clique in a propos de nous
 
 //les fonctions pour les coockies
+//pour l'user profil
 
 //pour récupérer un coockie
 function getCookie(cname) {
@@ -48,18 +49,12 @@ $(document).ready( function () {
 	//la div ou on clique
     $("#aproposdenous").click(function () {
     	//la div ou on veut aller
-		remove_current();
-		set_currentPage("aproposdenous");
-        $('html,body').animate({scrollTop: $("#main-wrapper").offset().top}, 'slow');
-
+		if (window.location.href == url_accueil) {
+            remove_current();
+            set_currentPage("aproposdenous");
+            $('html,body').animate({scrollTop: $("#main-wrapper").offset().top}, 'slow');
+        }
     });
-    $("#nouscontacter").click(function () {
-        //la div ou on veut aller
-		remove_current();
-        set_currentPage("nouscontacter");
-        $('html,body').animate({scrollTop: $("#footer-wrapper").offset().top}, 'slow');
-    });
-
 });
 
 
