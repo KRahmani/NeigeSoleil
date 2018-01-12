@@ -179,5 +179,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     </script>
     <?php
     unset($_POST["false"]);
-}?>
+}
+    ?>
 </html>

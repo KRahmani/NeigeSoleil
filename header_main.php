@@ -1,1 +1,1 @@
-<base href="http://localhost/2018/Neige-Soleil/" >
+<base href="http://localhost:8888/">

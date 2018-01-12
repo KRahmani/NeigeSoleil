@@ -6,6 +6,21 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+
+/* pour la barre de recherche*/
+
+#recherche_container{
+	margin: auto auto 3% auto;
+	text-align: center
+}
+
+/* pour le mot bienvenue*/
+#welcome_name{
+	font-size: 35px;
+	text-align: center;
+	font-family: 'Oleo Script', serif;
+}
 /*for connexion */
 
 #container_connexion{
@@ -1775,6 +1790,7 @@
 			}
 
 				.box.feature .image img {
+					max-height: 250px !important;
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 				}
@@ -2518,6 +2534,7 @@
 					}
 
 						.box.feature .image img {
+							max-height: 250px;
 							border-bottom-left-radius: 0;
 							border-bottom-right-radius: 0;
 						}

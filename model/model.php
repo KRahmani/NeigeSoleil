@@ -12,7 +12,7 @@ class Model
             $username = 'root';
             $password = 'root';
             $dbname = "NeigeSoleil";
-            $servername = "localhost";
+            $servername = "localhost:8889";
             $this->pdo = new PDO("mysql:host=".$servername, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->exec("USE " . $dbname);
@@ -37,8 +37,8 @@ class Model
                 return 0;
             }
             else{
-                $_SESSION["nom"] = $results['NOMP'];
-                $_SESSION["prenom"] = $results['PRENOMP'];
+                $_SESSION["nom"] = $results['NOML'];
+                $_SESSION["prenom"] = $results['PRENOML'];
                 return 1;
             }
         }

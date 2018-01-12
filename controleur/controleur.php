@@ -11,7 +11,7 @@
                 if ($count == 1)
                 {
                     $_SESSION['username'] = $username;
-                    header('Location: vue/vueespaceLoc.php');
+                    header('Location:vue/vueEspaceLoc.php');
                  }
                  else {
                     return $count;
@@ -29,7 +29,7 @@
                 if ($count == 1)
                 {
                     $_SESSION['username'] = $username;
-                    header('Location: vue/vueespaceProp.php');
+                    header('Location: vue/vueEspaceProp.php');
                 }
                 else {
                     return $count;
@@ -42,7 +42,7 @@
         public function Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe){
             $unModel = new Model();
                $unModel->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
-               header('Location: vue/vueespaceLoc.php');
+               header('Location: /vue/vueespaceLoc.php');
         }
 	}
 
