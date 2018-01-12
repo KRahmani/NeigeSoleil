@@ -7,5 +7,6 @@
                 <label><b>Mot de passe</b></label>
                 <input  type="password" placeholder="****************" name="password" required>
                 <input style = "padding: 0.1em 2.9em;margin: 9% 20% 0% 20%;"type="submit" id='' value='LOGIN' >
+                <div style="text-align: center;"><a style = "text-decoration: none;" href="connexion.php">Je suis locataire </a></div>
             </form>
         </div>

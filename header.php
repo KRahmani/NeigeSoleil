@@ -1,7 +1,7 @@
 <div style="margin-top: 1%;
     text-align: center;">
     <div id="logo">
-        <img src="n&s.png">
+        <a href="index.php"><img src="n&s.png"></a>
     </div>
 </div>
 <div id="page-wrapper">
@@ -22,7 +22,8 @@
                         <li id = "appartements"><a href = "appartements.php">Appartements</a></li>
                         <li id = "equipements"><a href="equipements.php">Équipements</a></li>
                         <li id = "aproposdenous"><a>À propos de Nous</a></li>
-                        <li id = "nouscontacter"><a>Nous contacter</a></li>
+                        <li id = "connexion"><a href="connexion.php"><i class="fa fa-user" aria-hidden="false"></i> <?php if (isset($_SESSION["prenom"]))echo $_SESSION["prenom"]; else echo "connexion";?></a></li>
+
                     </ul>
                 </nav>
 

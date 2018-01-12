@@ -11,7 +11,7 @@ include ("controleur/controleur.php");
 <?php require ("header.php");?>
 <!-- à mettre notre page equipements -->
 <div>
-    <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?> Youmer</h1>
+    <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?></h1>
     <div id="features-wrapper">
         <div class="container">
             <div class="row">
