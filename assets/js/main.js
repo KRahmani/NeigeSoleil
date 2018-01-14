@@ -32,6 +32,7 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
 //pour marquer la page ou on est
 function set_currentPage(my_page) {
     setCookie("current_page",my_page,7);

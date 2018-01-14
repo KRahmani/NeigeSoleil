@@ -12,7 +12,7 @@ class Model
             $username = 'root';
             $password = 'root';
             $dbname = "NeigeSoleil";
-            $servername = "localhost:8889";
+            $servername = "localhost";
             $this->pdo = new PDO("mysql:host=".$servername, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->exec("USE " . $dbname);

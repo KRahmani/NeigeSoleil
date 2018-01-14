@@ -46,7 +46,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et youmer </p>
+                                <p>Un appartement pour Kahina et  </p>
                             </header>
                         </div>
                     </section>
@@ -60,7 +60,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
+                                <p>impossible de trouver ça à </p>
                             </header>
                         </div>
                     </section>
@@ -102,7 +102,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et youmer </p>
+                                <p>Un appartement pour Kahina et  </p>
                             </header>
                         </div>
                     </section>
@@ -116,7 +116,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
+                                <p>impossible de trouver ça à </p>
                             </header>
                         </div>
                     </section>
@@ -157,7 +157,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et youmer </p>
+                                <p>Un appartement pour Kahina et  </p>
                             </header>
                         </div>
                     </section>
@@ -171,7 +171,7 @@ include ("controleur/controleur.php");
                         <div class="inner">
                             <header>
                                 <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
+                                <p>impossible de trouver ça à </p>
                             </header>
                         </div>
                     </section>
