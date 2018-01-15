@@ -5,11 +5,6 @@ if (!isset($_SESSION["prenom"]))
 {
     header("location: connexion.php");
 }
-if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
-    && $_SESSION["type"] == "proprietaire")
-{
-    header("location: equipements_pro.php");
-}
 ?>
 
 <!DOCTYPE HTML>
@@ -21,6 +16,7 @@ if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
 <!-- à mettre notre page equipements -->
 <div>
     <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?></h1>
+    <h3 style="text-align: center;margin-top: 2%;">Les équipements de mes appartements</h3>
     <div id="features-wrapper">
         <div class="container">
             <div class="row">
@@ -32,7 +28,7 @@ if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
                             <header>
                                 <h2>Pour ski</h2>
                                 <p>Sebad n le ski</p>
-                                <button class="but_contacter">Contacter</button>
+                                <button value = "youmer" class="but_contacter">Contacter</button>
                             </header>
                         </div>
                     </section>

@@ -56,6 +56,14 @@ $(document).ready( function () {
             $('html,body').animate({scrollTop: $("#main-wrapper").offset().top}, 'slow');
         }
     });
+    $(".but_contacter").click(function () {
+        //ce que tu veux faire quand il clique sur contacter
+		//ce qui veut dire afficher le modal pour contacter
+		console.log(this.value);
+        var text = "Bonjour, Je vous contacte pour votre appartments ref : " + this.value;
+		$("#contact_area").val(text);
+        $('#modalcontacter').modal("show");
+    });
 });
 
 

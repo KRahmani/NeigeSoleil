@@ -1,6 +1,57 @@
 <?php
 require ("header_main.php");
 include ("controleur/controleur.php");
+
+if (!isset($_SESSION["prenom"]))
+{
+    header("location: connexion.php");
+}
+if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
+    && $_SESSION["type"] == "proprietaire")
+{
+    header("location: appartements_pro.php");
+}
+
+function fetch_appartements_index(){
+    $cont = new Controleur();
+    $tab = $cont->fetch_appartements(10);
+    foreach ($tab as $tab_tmp)
+    {
+        echo '<div class="4u 12u(medium)">';
+        echo '<section class="box feature">';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo '<div class="inner">';
+        echo ' <header>';
+        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
+        echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
+        echo '<button value = "' . $tab_tmp["idappartement"] . '" class="but_contacter">Contacter</button>';
+        echo ' </header>';
+        echo '</div>';
+        echo '</section>';
+        echo '</div>';
+    }
+}
+function fetch_appartements_Research(){
+    $cont = new Controleur();
+    $tab = $cont->fetch_appartements_Research($_POST["Region"],$_POST["dateDebut"],$_POST["dateFin"], $_POST["prixMin"],$_POST["prixMax"],$_POST["nbPersonne"]);
+    foreach ($tab as $tab_tmp)
+    {
+        echo '<div class="4u 12u(medium)">';
+        echo '<section class="box feature">';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo '<div class="inner">';
+        echo ' <header>';
+        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
+        echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
+        echo '<button value = "' . $tab_tmp["idappartement"] . '" class="but_contacter">Contacter</button>';
+        echo ' </header>';
+        echo '</div>';
+        echo '</section>';
+        echo '</div>';
+    }
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -12,203 +63,48 @@ include ("controleur/controleur.php");
 <!-- à mettre notre page appartements -->
 <div>
     <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?></h1>
-
     <div id="features-wrapper">
         <div class="container">
             <div id = "recherche_container">
-                <form class="navbar-form navbar-left" action="">
-                    <div  style = "display: inline-block;" class="form-group 3u">
-                        <input type="text" class="form-control" placeholder="Search">
+                <form class="navbar-form navbar-left" action="" method="post">
+                    <div   style = "display: inline-block;" class="form-group 2u">
+                        <input name="dateDebut" id="get_date_debut" type="date" data-toggle="datepicker" class="form-control hasDatepicker" placeholder="Date" required="">
                     </div>
-                    <select  style="display: inline; background: white;" class="2u">
-                        <option selected>Region</i></option>
-                        <option>PARIS</option>
-                        <option>Saint DENIS</option>
-                        <option>Yveline</option>
+                    <div   style = "display: inline-block;" class="form-group 2u">
+                        <input name="dateFin" id="get_date_fin" type="date" data-toggle="datepicker" class="form-control" placeholder="Date" required="">
+                    </div>
+                    <select name="Region" style="display: inline; background: white;" class="2u">
+                        <option value = "" disabled selected>Region</i></option>
+                        <option value = "nouvelle-aquitaine">nouvelle-aquitaine</option>
+                        <option value="saintDenis">Saint DENIS</option>
+                        <option value="yveline">Yveline</option>
                     </select>
                     <div  style = "display: inline-block;" class="form-group 1u">
-                        <input type="text" class="form-control" placeholder="Prix Max">
+                        <input name = "prixMax" type="text" class="form-control" placeholder="Prix Max">
                     </div>
                     <div  style = "display: inline-block;" class="form-group 1u">
-                        <input type="text" class="form-control" placeholder="Prix Min">
+                        <input name="prixMin" type="text" class="form-control" placeholder="Prix Min">
                     </div>
                     <div  style = "display: inline-block;" class="form-group 1u">
-                        <input type="text" class="form-control" placeholder="Nb Per">
+                        <input name="nbPersonne" type="text" class="form-control" placeholder="Nb Per">
                     </div>
-                    <button style="display: inline;" type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input style="display: inline;padding: 0.0em 1.0em;" type="submit" value = "search" name = "search" class="btn btn-default">
                 </form>
             </div>
             <div class="row">
-                <div class="4u 12u(medium)">
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon-1-3.jpg" alt="" /></a>
-                            <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon-1-3.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>   <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon-1-3.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
+                <?php
+               if (!isset($_POST["search"]))
+                  fetch_appartements_index();
+                else {
+                    //j'appelle une autre fonction qui recherche des
+                    //appartements selon les filtre du locataire*/
+                    fetch_appartements_Research();
+                }
+                ?>
             </div>
         </div>
-</div>
-
+    </div>
+ </div>
 </div>
 <?php require ("footer.php");?>
 <?php require ("script_js.php");?>

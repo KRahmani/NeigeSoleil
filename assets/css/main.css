@@ -7,7 +7,23 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+/*pour le formulaire sur contacter*/
 
+.input_contacter
+{
+	display: inline-block;
+	margin: 1% 0%;
+}
+
+/*pour la class contacter */
+.but_contacter:hover{
+	background: #055305;
+}
+.but_contacter{
+	background: green;
+	padding: 0.6em 1.0em;
+	font-size: inherit;
+}
 /* for user profile */
 
 /* pour la barre de recherche*/
@@ -1775,6 +1791,7 @@
 
 			.box.feature .inner {
 				padding: 4em 2em 3em 2em;
+				height: 230px;
 			}
 
 			.box.feature h2 {
@@ -1792,6 +1809,7 @@
 
 				.box.feature .image img {
 					max-height: 250px !important;
+					min-height: 250px !important;
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 				}
@@ -2523,6 +2541,7 @@
 
 					.box.feature .inner {
 						padding: 30px 15px 30px 15px;
+						height: 230px;
 					}
 
 					.box.feature p {
@@ -2535,7 +2554,6 @@
 					}
 
 						.box.feature .image img {
-							max-height: 250px;
 							border-bottom-left-radius: 0;
 							border-bottom-right-radius: 0;
 						}

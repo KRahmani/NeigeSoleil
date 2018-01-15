@@ -10,8 +10,7 @@
                 $count = $unModel->connexion_Loc($username, $password);
                 if ($count == 1)
                 {
-                    $_SESSION['username'] = $username;
-                    header('Location:vue/vueEspaceLoc.php');
+                    header('Location:appartements.php');
                  }
                  else {
                     return $count;
@@ -28,8 +27,7 @@
                 $count = $unModel->connexion_Pro($username, $password);
                 if ($count == 1)
                 {
-                    $_SESSION['username'] = $username;
-                    header('Location: vue/vueEspaceProp.php');
+                    header('Location: appartements_pro.php');
                 }
                 else {
                     return $count;
@@ -44,6 +42,19 @@
                $unModel->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
                header('Location: /vue/vueespaceLoc.php');
         }
+
+        public function fetch_appartements($nb){
+            $unModel = new Model();
+            $tab = $unModel->fetch_appartements($nb);
+            return $tab;
+        }
+
+        public function fetch_appartements_Research($region,$dateDeb,$dateFin,$prixMin,$prixMax,$nbPersonne){
+            $unModel = new Model();
+            $tab = $unModel->fetch_appartements_Research($region,$dateDeb,$dateFin,$prixMin,$prixMax,$nbPersonne);
+            return $tab;
+        }
+
 	}
 
 

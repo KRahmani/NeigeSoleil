@@ -5,93 +5,36 @@
  * Date: 12/01/2018
  * Time: 02:03
  */
+session_start();
+//si le user veut se déconnecté on libére la variable de session prenom
+if (isset($_POST["logout"])) {
+    unset($_SESSION["prenom"]);
+    header("location: index.php");
+}
 ?>
+
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CC   A 3.0 license (html5up.net/license)
--->
 <html>
+<!-- pour inclure tous les liens css générals-->
 <?php require ("head.php");?>
 <body>
-<?php require ("header.php");?>
-
-<div class="card">
-    <div class="content">
-        <div class="post main">
-            <div class="preview"> </div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-            <div class="detail"></div>
-            <div class="details"></div>
-            <div class="details"></div>
-        </div>²
-        <div class="post sec">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post sec">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-        <div class="post ter">
-            <div class="preview"></div>
-            <div class="counter"></div>
-            <div class="detail"></div>
-        </div>
-    </div>
-    <div class="fabs">
-        <div class="fab">gfnbbg</div>
-        <i class="avatar zmdi zmdi-account"></i>
-    </div>
-    <div class="user">
-        <div class="socials">
-            <div class="social"><i class="zmdi zmdi-twitter"></i></div>
-            <div class="social"><i class="zmdi zmdi-github"></i></div>
-            <div class="social"><i class="zmdi zmdi-google-plus"></i></div>
-            <div class="social"><i class="zmdi zmdi-codepen"></i></div>
-        </div>
-        <div class="profiles">
-            <div class="profile"><span>51</span>Upvoted</div>
-            <div class="profile"><span>9</span>Created</div>
-            <div class="profile"><span>9</span>Showcased</div>
-            <div class="profile"><span>1</span>Collections</div>
-            <div class="profile"><span>2</span>Followers</div>
-            <div class="profile"><span>5</span>Following</div>
-        </div>
-    </div>
+<!-- pour inclure le header (accueil / appartements / equipements / a propos de nous / connexion )-->
+    <?php require ("header.php");?>
+<!-- on mets le corps de la page -->
+<div style="text-align: center;">
+    <form method="post">
+        <input type = "submit" value = "Déconnexion" name = "logout">
+    </form>
 </div>
 
-</div>
+    </div>
+<!-- pour inclure le footer-->
 <?php require ("footer.php");?>
+<!-- pour inclure les fichiers js -->
 <?php require ("script_js.php");?>
 </body>
+<script>
+    //pour encadrer le button connexion dans le header
+    set_currentPage("connexion");
+</script>
 
