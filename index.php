@@ -15,8 +15,8 @@ require ("header_main.php");
         <div id="banner" class="box container">
             <div class="row">
                 <div class="7u 12u(medium)">
-                    <h2>Bienvenue, vous voulez préparer votre séjour ??.</h2>
-                    <p>Pour voir le catalogue merci de vous inscrire ou de vous connecter.</p>
+                    <h2>Bienvenue, vous voulez préparer votre séjour ?</h2>
+                    <p>Pour voir nos appartements merci de vous inscrire ou de vous connecter.</p>
                 </div>
                 <div class="5u 12u(medium)">
                     <ul>
@@ -52,16 +52,14 @@ require ("header_main.php");
                     <!-- Sidebar -->
                     <div id="sidebar">
                         <section class="widget thumbnails">
-                            <h3>Interesting stuff</h3>
+                            <h3>Louez & Profitez</h3>
                             <div class="grid">
                                 <div class="row 50%">
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="https://www.alpbachtal.at/website/var/tmp/image-thumbnails/10000/12082/thumb__gallery-large__wide/skifahrer-rote-jacke-blickt-auf-berge-ski-juwel-alpbachtal-wildschoanau.jpeg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="https://www.wur.nl/upload_mm/8/6/a/ad5911bf-d3dd-4f76-b8c9-104bdf29cd95_Wintersport3.jpg" alt="" /></a></div>
                                 </div>
                             </div>
-                            <a href="#" class="button icon fa-file-text-o">More</a>
+                            <a href="appartements.php" class="button icon fa-file-text-o">More</a>
                         </section>
                     </div>
 
@@ -71,11 +69,11 @@ require ("header_main.php");
                     <!-- Content -->
                     <div id="content">
                         <section class="last">
-                            <h2>So what's this all about?</h2>
-                            <p>This is <strong>Verti</strong>, a free and fully responsive HTML5 site template by <a href="http://html5up.net">HTML5 UP</a>.
-                                Verti is released under the <a href="http://html5up.net/license">Creative Commons Attribution license</a>, so feel free to use it for any personal or commercial project you might have going on (just don't forget to credit us for the design!)</p>
-                            <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper bibendum ipsum, et tristique augue fringilla eu. Vivamus id risus vel dolor auctor euismod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. Aliquam luctus mattis lectus sit amet phasellus quam turpis.</p>
-                            <a href="#" class="button icon fa-arrow-circle-right">Continue Reading</a>
+                            <h2>Qui sommes nous ?</h2>
+                            <p>NEIGE ET SOLEIL est une société de location d’appartements et de matériels de ski et randonné en montagne. Elle se situe dans la vallée du Queyras, près de Briançon.
+                                Son Activité principale consiste en la gestion locative d’appartements.
+                                En effet, elle propose à des propriétaires une gestion locative de leurs appartements en les louant à des particuliers de manière saisonnière.
+                            </p>
                         </section>
                     </div>
 

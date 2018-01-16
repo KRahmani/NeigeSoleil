@@ -1,7 +1,7 @@
 <?php
 require ("header_main.php");
 include ("controleur/controleur.php");
-
+require ("function.php");
 if (!isset($_SESSION["prenom"]))
 {
     header("location: connexion.php");
@@ -45,173 +45,13 @@ if (!isset($_SESSION["prenom"]))
                 </form>
             </div>-->
             <div class="row">
-                <div class="4u 12u(medium)">
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                                <button value = "kahina" class="but_contacter">Contacter</button>
-                            </header>
-                        </div>
-                    </section>
-                </div>
-                <div class="4u 12u(medium)">
+            <?php
+            if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
+            && $_SESSION["type"] == "proprietaire") {
+                fetch_appartementsProp($_SESSION["id"]);
 
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                            <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 12</h2>
-                                <p>Un appartement pour Kahina et  </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>La courneuve</h2>
-                                <p>impossible de trouver ça à </p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.singularstays.co.uk/rentals/fotos/2/14263615214167d32224288b3a5d28719590752311/146123601439bfc4b4a92dedcb3ffe61f189d82a18.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Paris 1</h2>
-                                <p>juste à coté de rue rambuteau hhh</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Ivry sur seine</h2>
-                                <p>L'école de ton mari à Kahina</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
+            }
+            ?>
             </div>
         </div>
 </div>

@@ -37,9 +37,15 @@ class Model
                 return 0;
             }
             else{
+                $_SESSION["id"] = $results['IDTIERS'];
                 $_SESSION["nom"] = $results['NOML'];
                 $_SESSION["prenom"] = $results['PRENOML'];
                 $_SESSION["type"] = "locataire";
+                $_SESSION["adresse"] = $results['ADRESSEL'];
+                $_SESSION["mail"] = $results['EMAIL'];
+                $_SESSION["code_postal"] = $results['CODEPOSTAL'];
+                $_SESSION["ville"] = $results['VILLE'];
+                $_SESSION["telephone"] = $results['TEL'];
                 return 1;
             }
         }
@@ -64,9 +70,16 @@ class Model
             }
             else{
                 //la récupération de données
+                $_SESSION["id"] = $results['IDTIERS'];
                 $_SESSION["nom"] = $results['NOMP'];
                 $_SESSION["prenom"] = $results['PRENOMP'];
                 $_SESSION["type"] = "proprietaire";
+                $_SESSION["adresse"] = $results['ADRESSEP'];
+                $_SESSION["mail"] = $results['EMAIL'];
+                $_SESSION["code_postal"] = $results['CODEPOSTAL'];
+                $_SESSION["ville"] = $results['VILLE'];
+                $_SESSION["telephone"] = $results['TEL'];
+                $_SESSION["rib"] = $results['RIB'];
                 return 1;
             }
         }
@@ -82,7 +95,6 @@ class Model
         {
             $requete = "INSERT INTO `LOCATAIRE` (`CIVILITE`, `NOML`, `PRENOML`, `ADRESSEL`, `CODEPOSTAL`, `VILLE`, `TEL`, `EMAIL`, `MOT_PASSE`) 
                         VALUES ('$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
-
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $_SESSION["nom"] = $nom;
@@ -195,6 +207,39 @@ class Model
             $sql->execute();
             $results = $sql->fetchAll();
 
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+    public function fetch_EquipementProp($idprop)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select * from MATERIEL where idProprietaire = $idprop";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public function fetch_appartementsProp($idProp)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface, C.idTiers"
+                . " from appartement A, info_ville v, contrat_gestion C where A.idville = v.idville and A.idappartement = C.IDAPPARTEMENT and C.idTiers = " . $idProp;
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
             return $results;
         }
         else{

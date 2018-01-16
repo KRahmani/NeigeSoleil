@@ -40,7 +40,7 @@
         public function Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe){
             $unModel = new Model();
                $unModel->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
-               header('Location: /vue/vueespaceLoc.php');
+               header('Location: index.php');
         }
 
         public function fetch_appartements($nb){
@@ -72,6 +72,19 @@
             $tab = $unModel->fetch_EquipementWithRecherche($donnee);
             return $tab;
         }
+
+        public function fetch_EquipementProp($idProp){
+            $unModel = new Model();
+            $tab = $unModel->fetch_EquipementProp($idProp);
+            return $tab;
+        }
+
+        public function fetch_appartementsProp($idProp){
+            $unModel = new Model();
+            $tab = $unModel->fetch_appartementsProp($idProp);
+            return $tab;
+        }
+
 
 	}
 
