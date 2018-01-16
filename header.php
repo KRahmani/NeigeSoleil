@@ -18,7 +18,7 @@
                 <div  style = "margin: 1% 0%;" class="form-group">
                     <input type="email" class="form-control" placeholder="Mail *">
                 </div>
-                <textarea id = "contact_area" class="form-control"></textarea>
+                <textarea id = "contact_area"class="form-control"></textarea>
                 <div  style = "display: inline-block; float: right;margin: 2% 0%;" class="form-group ">
                     <input style="padding: 0.4em 0.8em;font-size: inherit;" type="submit" class="form-control" value="Envoyer">
                 </div>
@@ -48,7 +48,7 @@
                 <!-- Nav -->
                 <nav id="nav">
                     <ul>
-                        <li id = "accueil"><a href="index.php">Acceuil</a></li>
+                        <li id = "accueil"><a href="index.php">Acceuil</a></li> 
                         <li id = "appartements"><a href = "appartements.php">Appartements</a></li>
                         <li id = "equipements"><a href="equipements.php">Équipements</a></li>
                         <li id = "aproposdenous"><a>À propos de Nous</a></li>

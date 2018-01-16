@@ -49,11 +49,16 @@ CREATE TABLE IF NOT EXISTS MATERIEL
  ) 
  comment = "";
  
- insert into materiel values(null,'ski de piste Pack atris','excellent');
- insert into materiel values(null,'Guardian mnc 13','bon');
- insert into materiel values(null,'Baton de ski Kaloo jr','bon');
- insert into materiel values(null,'chaussure de ski rossignol','très bon');
-insert into materiel values(null,'patinette de ski', 'bon');
+ alter table MATERIEL ADD image varchar(50);
+ ALTER TABLE MATERIEL ADD idProprietaire integer(6) not null;$
+  ALTER TABLE MATERIEL ADD PRIX float(10,2) not null;
+ 
+ 
+ insert into materiel values(null,'ski de piste Pack atris','excellent','atris',2,30.00);
+ insert into materiel values(null,'Guardian mnc 13','bon','Guardianmnc13',2,60.00);
+ insert into materiel values(null,'Baton de ski Kaloo jr','bon','BatondeskiKaloo',4,84.00);
+ insert into materiel values(null,'chaussure de ski rossignol','très bon','rossignol',3,56.00);
+insert into materiel values(null,'patinette de ski', 'bon','patinette',4,72.00);
 
 # -----------------------------------------------------------------------------
 #       TABLE : TIERS
@@ -179,7 +184,11 @@ CREATE TABLE IF NOT EXISTS RESERVATION
  ) 
  comment = "";
  
-  insert into reservation values(null,1,1,null,1,7,'confirmee','2017-10-24','2018-01-03','2018-01-10',6);
+ alter table reservation add type_reserv varchar(20);
+ 
+  insert into reservation values(null,1,1,null,1,7,'confirmee','2017-10-24','2018-01-03','2018-01-10',6,'APPART');
+  insert into reservation values(null,1,1,2,1,7,'confirmee','2017-10-24','2018-01-03','2018-01-10',6,'MATERIEL');
+  
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE RESERVATION
@@ -386,6 +395,10 @@ ALTER TABLE RESERVATION
 ALTER TABLE CONTRAT_GESTION 
   ADD FOREIGN KEY FK_CONTRAT_GESTION_PROPRIETAIRE (IDTIERS)
       REFERENCES PROPRIETAIRE (IDTIERS) ;
+	  
+ALTER TABLE MATERIEL 
+  ADD FOREIGN KEY FK_MATERIEL_PROPRIETAIRE (idProprietaire)
+      REFERENCES PROPRIETAIRE (IDTIERS) ;
 
 
 ALTER TABLE CONTRAT_GESTION 
@@ -416,4 +429,35 @@ ALTER TABLE LOCATAIRE
 ALTER TABLE H_CONTRAT_GESTION 
   ADD FOREIGN KEY FK_H_CONTRAT_GESTION_CONTRAT_GESTION (IDC)
       REFERENCES CONTRAT_GESTION (IDC) ;
+	  
+	  
 
+Drop  trigger if exists insertProp;
+delimiter //
+
+CREATE trigger insertProp 
+before insert on Proprietaire
+for each row
+ begin
+	Declare nbP int;
+	select count(*) into nbP from Tiers where idtiers = new.idtiers;
+	if nbP = 0 then
+		insert into tiers values (new.idtiers);
+	end if;
+end//
+delimiter ;
+
+Drop  trigger if exists insertLoc;
+delimiter //
+
+CREATE trigger insertLoc
+before insert on Locataire
+for each row
+ begin
+	Declare nbL int;
+	select count(*) into nbL from Tiers where idtiers = new.idtiers;
+	if nbL = 0 then
+		insert into tiers values (new.idtiers);
+	end if;
+end//
+delimiter ;  

@@ -4,6 +4,8 @@ session_start();
 
 require ("controleur/controleur.php");
 
+if (isset($_SESSION["prenom"]))
+    header("location: user_profile.php");
 if(isset($_POST['username']) && isset($_POST['password'])){
     $cont = new Controleur();
     //pour la sécurité contre les injections sql et les failles xss

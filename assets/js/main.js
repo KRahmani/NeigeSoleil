@@ -50,7 +50,8 @@ $(document).ready( function () {
 	//la div ou on clique
     $("#aproposdenous").click(function () {
     	//la div ou on veut aller
-		if (window.location.href == url_accueil) {
+		var url_accueil_tmp = url_accueil + "index.php";
+		if (window.location.href == url_accueil || window.location.href == url_accueil_tmp) {
             remove_current();
             set_currentPage("aproposdenous");
             $('html,body').animate({scrollTop: $("#main-wrapper").offset().top}, 'slow');
@@ -60,7 +61,7 @@ $(document).ready( function () {
         //ce que tu veux faire quand il clique sur contacter
 		//ce qui veut dire afficher le modal pour contacter
 		console.log(this.value);
-        var text = "Bonjour, Je vous contacte pour votre appartments ref : " + this.value;
+        var text = "Bonjour, Je vous contacte pour votre " + this.value;
 		$("#contact_area").val(text);
         $('#modalcontacter').modal("show");
     });

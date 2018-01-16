@@ -1,7 +1,7 @@
 <?php
 require ("header_main.php");
 include ("controleur/controleur.php");
-
+require ("function.php");
 if (!isset($_SESSION["prenom"]))
 {
     header("location: connexion.php");
@@ -12,46 +12,7 @@ if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
     header("location: appartements_pro.php");
 }
 
-function fetch_appartements_index(){
-    $cont = new Controleur();
-    $tab = $cont->fetch_appartements(10);
-    foreach ($tab as $tab_tmp)
-    {
-        echo '<div class="4u 12u(medium)">';
-        echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
-        echo '<div class="inner">';
-        echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
-        echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
-        echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
-        echo '<button value = "' . $tab_tmp["idappartement"] . '" class="but_contacter">Contacter</button>';
-        echo ' </header>';
-        echo '</div>';
-        echo '</section>';
-        echo '</div>';
-    }
-}
-function fetch_appartements_Research(){
-    $cont = new Controleur();
-    $tab = $cont->fetch_appartements_Research($_POST["Region"],$_POST["dateDebut"],$_POST["dateFin"], $_POST["prixMin"],$_POST["prixMax"],$_POST["nbPersonne"]);
-    foreach ($tab as $tab_tmp)
-    {
-        echo '<div class="4u 12u(medium)">';
-        echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
-        echo '<div class="inner">';
-        echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
-        echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
-        echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
-        echo '<button value = "' . $tab_tmp["idappartement"] . '" class="but_contacter">Contacter</button>';
-        echo ' </header>';
-        echo '</div>';
-        echo '</section>';
-        echo '</div>';
-    }
-}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -73,12 +34,9 @@ function fetch_appartements_Research(){
                     <div   style = "display: inline-block;" class="form-group 2u">
                         <input name="dateFin" id="get_date_fin" type="date" data-toggle="datepicker" class="form-control" placeholder="Date" required="">
                     </div>
-                    <select name="Region" style="display: inline; background: white;" class="2u">
-                        <option value = "" disabled selected>Region</i></option>
-                        <option value = "nouvelle-aquitaine">nouvelle-aquitaine</option>
-                        <option value="saintDenis">Saint DENIS</option>
-                        <option value="yveline">Yveline</option>
-                    </select>
+                    <?php
+                    fetch_Region_index();
+                    ?>
                     <div  style = "display: inline-block;" class="form-group 1u">
                         <input name = "prixMax" type="text" class="form-control" placeholder="Prix Max">
                     </div>
@@ -94,7 +52,7 @@ function fetch_appartements_Research(){
             <div class="row">
                 <?php
                if (!isset($_POST["search"]))
-                  fetch_appartements_index();
+                  fetch_appartements_index(10);
                 else {
                     //j'appelle une autre fonction qui recherche des
                     //appartements selon les filtre du locataire*/

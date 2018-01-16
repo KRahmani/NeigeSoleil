@@ -7,6 +7,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+#footer-wrapper{
+	border: 2px solid grey;
+	border-radius: 6px;
+	width: 95%;
+	box-shadow: 2px 2px 2px 2px;
+	margin: 2% auto 1% auto;
+}
 /*pour le formulaire sur contacter*/
 
 .input_contacter
@@ -30,6 +37,10 @@
 #recherche_container{
 	margin: auto auto 3% auto;
 	text-align: center
+}
+#recherche_equipement{
+	margin: auto auto 3% auto;
+	text-align: center;
 }
 
 /* pour le mot bienvenue*/

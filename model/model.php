@@ -151,6 +151,58 @@ class Model
                 }
             }
 
+    public function fetch_Region()
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select * from region";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public function fetch_Equipement($nb)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select * from MATERIEL limit $nb";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public function fetch_EquipementWithRecherche($donnee)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select * from MATERIEL where TYPEM like '%$donnee%' or ETAT like '%$donnee%' or PRIX like '%$donnee%'";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+
 
 
 }

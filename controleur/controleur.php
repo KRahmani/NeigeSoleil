@@ -55,6 +55,24 @@
             return $tab;
         }
 
+        public function fetch_Region(){
+            $unModel = new Model();
+            $tab = $unModel->fetch_Region();
+            return $tab;
+        }
+
+        public function fetch_Equipement($nb){
+            $unModel = new Model();
+            $tab = $unModel->fetch_Equipement($nb);
+            return $tab;
+        }
+
+        public function fetch_EquipementWithRecherche($donnee){
+            $unModel = new Model();
+            $tab = $unModel->fetch_EquipementWithRecherche($donnee);
+            return $tab;
+        }
+
 	}
 
 

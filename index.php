@@ -1,6 +1,7 @@
 <?php
 require ("header_main.php");
 	include ("controleur/controleur.php");
+	require ("function.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -19,8 +20,8 @@ require ("header_main.php");
                 </div>
                 <div class="5u 12u(medium)">
                     <ul>
-                        <li><a style = "font-size: 30px;" href="connexion_pro.php" class="button big icon fa-arrow-circle-right">Je suis propriétaire</a></li>
-                        <li><a style = "font-size: 30px;" href="connexion.php" class="button alt big icon fa-arrow-circle-right">Je suis locataire</a></li>
+                        <li><a style = "font-size: 1.6em;" href="connexion_pro.php" class="button big icon fa-arrow-circle-right">Je suis propriétaire</a></li>
+                        <li><a style = "font-size: 1.6em;" href="connexion.php" class="button alt big icon fa-arrow-circle-right">Je suis locataire</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,51 +32,13 @@ require ("header_main.php");
     <div id="features-wrapper">
         <div class="container">
             <div class="row">
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a class="image featured"><img src="https://marcfoujolsimmobilier.files.wordpress.com/2013/02/mg_2381.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Put something here</h2>
-                                <p>Maybe here as well I think</p>
-                            </header>
-                            <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a class="image featured"><img src="http://www.book-a-flat.com/photo/paris/13966/salon-2.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>An interesting title</h2>
-                                <p>This is also an interesting subtitle</p>
-                            </header>
-                            <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a class="image featured"><img src="https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon-1-3.jpg"" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Oh, and finally ...</h2>
-                                <p>Here's another intriguing subtitle</p>
-                            </header>
-                            <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                        </div>
-                    </section>
-
-                </div>
+                <?php
+                if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
+                    && $_SESSION["type"] == "locataire")
+                 fetch_appartements_index(3);
+                else
+                    fetch_appartements_accueil(3);
+                ?>
             </div>
         </div>
     </div>

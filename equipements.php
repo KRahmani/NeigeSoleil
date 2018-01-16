@@ -1,6 +1,7 @@
 <?php
 require ("header_main.php");
 include ("controleur/controleur.php");
+require ("function.php");
 if (!isset($_SESSION["prenom"]))
 {
     header("location: connexion.php");
@@ -23,132 +24,25 @@ if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
     <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?></h1>
     <div id="features-wrapper">
         <div class="container">
+            <div id = "recherche_equipement">
+                <form class="navbar-form navbar-left" action="" method="post">
+                    <div   style = "display: inline-block;" class="form-group 5u">
+                        <input type="text" name="recherche_content"
+                               value = "<?php if (isset($_POST["recherche_content"])) echo $_POST["recherche_content"];?>"
+                               id="recherche" placeholder="Recherche" class="form-control hasDatepicker">
+                    </div>
+                    <input style="display: inline;padding: 0.0em 1.0em;" type="submit" value = "search" name = "recherche" class="btn btn-default">
+                </form>
+            </div>
             <div class="row">
-                <div class="4u 12u(medium)">
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.ikonet.com/fr/ledictionnairevisuel/images/qc/sauteur-344430.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Pour ski</h2>
-                                <p>Sebad n le ski</p>
-                                <button class="but_contacter">Contacter</button>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://sportbike.lv/image/catalog/product/Ragavas-SPIDER-Alpen.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Yaaaooo</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.glisshop.co.uk/gfx/img/glisshop/product/80809/gallery/0/head-next_edge_85_ht_anthracite_black-2016-original.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Tisebadin di lski lol</h2>
-                                <p>et voila le taf</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-
-                <div class="4u 12u(medium)">
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.ikonet.com/fr/ledictionnairevisuel/images/qc/sauteur-344430.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Pour ski</h2>
-                                <p>Sebad n le ski</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://sportbike.lv/image/catalog/product/Ragavas-SPIDER-Alpen.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Yaaaooo</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.glisshop.co.uk/gfx/img/glisshop/product/80809/gallery/0/head-next_edge_85_ht_anthracite_black-2016-original.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Tisebadin di lski lol</h2>
-                                <p>et voila le taf</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="http://www.ikonet.com/fr/ledictionnairevisuel/images/qc/sauteur-344430.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Pour ski</h2>
-                                <p>Sebad n le ski</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://sportbike.lv/image/catalog/product/Ragavas-SPIDER-Alpen.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Yaaaooo</h2>
-                                <p>impossible de trouver ça à la courneuve</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="4u 12u(medium)">
-
-                    <!-- Box -->
-                    <section class="box feature">
-                        <a href="#" class="image featured"><img src="https://www.glisshop.co.uk/gfx/img/glisshop/product/80809/gallery/0/head-next_edge_85_ht_anthracite_black-2016-original.jpg" alt="" /></a>
-                        <div class="inner">
-                            <header>
-                                <h2>Tisebadin di lski lol</h2>
-                                <p>et voila le taf</p>
-                            </header>
-                        </div>
-                    </section>
-
-                </div>
+                <?php
+                if (!isset($_POST["recherche"])) {
+                    fetch_Equipement_index(10);
+                }
+                else{
+                    fetch_EquipementWithRecherche_index($_POST['recherche_content']);
+                }
+                ?>
             </div>
         </div>
 </div>
