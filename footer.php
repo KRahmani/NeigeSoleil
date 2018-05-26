@@ -20,8 +20,12 @@
             <div class="3u 6u(medium) 12u$(small)">
 
                 <!-- Links -->
-                <section class="widget links">
-                    <h3>Guide tarifaire</h3>
+                <section class="widget contact">
+                    <h3>Nous suivre</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/neige.soleil.5" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/neigeandsoleil/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
                 </section>
 
             </div>
@@ -29,12 +33,10 @@
 
                 <!-- Contact -->
                 <section class="widget contact">
-                    <h3>Contact Us</h3>
+                    <h3>Nous contacter</h3>
                     <ul>
-                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon fa-mail-forward"><span class="label">Mail</span></a></li>
+                        <li><p><b>neigeandsoleil@gmail.com</b></p></li>
+                        <li><p><b>0250962043</b></p></li>
                     </ul>
                 </section>
 

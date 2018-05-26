@@ -59,7 +59,7 @@ function fetch_appartements_Research(){
         echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
-        echo '<button value = "appartement ref : ' . $tab_tmp["idappartement"] . '" class="but_contacter">Réserver</button>';
+        echo '<button value = "appartement ref : ' . $tab_tmp["IDAPPARTEMENT"] . '" class="but_contacter">Réserver</button>';
         echo ' </header>';
         echo '</div>';
         echo '</section>';
@@ -128,12 +128,13 @@ function fetch_EquipementProp_index($idProp){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . utf8_encode($tab_tmp["image"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . utf8_encode($tab_tmp["IMAGE"]) . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
         echo '<h2>' . utf8_encode($tab_tmp["TYPEM"]) .'</h2>';
         echo '<p>' . utf8_encode($tab_tmp['ETAT']) .'</p>';
         echo '<p>' . utf8_encode($tab_tmp['PRIX']).' Euros' . '</p>';
+        echo '<button value = "materiel ref : ' . $tab_tmp["IDMATERIEL"] . '" class="but_contacter">Infos</button>';
         echo ' </header>';
         echo '</div>';
         echo '</section>';
@@ -155,6 +156,7 @@ function fetch_appartementsProp($id)
         echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
+        echo '<button value = "appartement ref : ' . $tab_tmp["IDAPPARTEMENT"] . '" class="but_contacter">Infos</button>';
         echo ' </header>';
         echo '</div>';
         echo '</section>';

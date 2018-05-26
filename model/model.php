@@ -59,7 +59,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "SELECT * from PROPRIETAIRE where PRENOMP=:username and mot_passe=:password";
+            $requete = "SELECT * from PROPRIETAIRE where PRENOMP=:username and MOT_PASSE=:password";
             $donnees= array(":username" =>$username, ":password" =>$password);
             $sql = $this->pdo->prepare($requete);
             $sql->execute($donnees);
@@ -88,17 +88,34 @@ class Model
         }
     }
 
+    public function getMaxIdTiers()
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select max(IDTIERS) from TIERS";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $result = $sql->fetch();
+            return $result;
+        }
+        else{
+            return null;
+        }
+    }
     public function Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe)
     {
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "INSERT INTO `LOCATAIRE` (`CIVILITE`, `NOML`, `PRENOML`, `ADRESSEL`, `CODEPOSTAL`, `VILLE`, `TEL`, `EMAIL`, `MOT_PASSE`) 
-                        VALUES ('$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
+            $maxId = $this->getMaxIdTiers() +1 ;
+            $requete = "INSERT INTO `LOCATAIRE` 
+                        VALUES ('$maxId','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $_SESSION["nom"] = $nom;
             $_SESSION["prenom"] = $prenom;
+            echo $maxId;
         }
         else{
             return null;
@@ -218,7 +235,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "select * from MATERIEL where idProprietaire = $idprop";
+            $requete = "select * from MATERIEL where idtiers = $idprop";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();

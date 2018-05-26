@@ -17,7 +17,7 @@ if (!isset($_SESSION["prenom"]))
 <!-- à mettre notre page equipements -->
 <div>
     <h1 id = "Welcome_name">Bienvenue  <?php echo $_SESSION["prenom"];?></h1>
-    <h3 style="text-align: center;margin-top: 2%;">Mes appartements</h3>
+    <h3 style="text-align: center;margin-top: 2%;">Mes équipements</h3>
     <div id="features-wrapper">
         <div class="container">
             <div class="row">

@@ -6,7 +6,60 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+#menu-accordeon {
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align: center;
+	width: 100px;
+}
 
+#menu-accordeon ul {
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align: center;
+}
+
+#menu-accordeon li {
+	border-radius: 6px;
+	margin-bottom:2px;
+	box-shadow: 3px 3px 3px #999;
+	border:solid 1px #333A40;
+	font-size: 1.0em;
+	font-weight: 700;
+}
+
+#menu-accordeon a:hover{
+	background: inherit;
+}
+
+#menu-accordeon li li {
+	max-height:0;
+	overflow: hidden;
+	transition: all .5s;
+	border-radius:0;
+	background: #444;
+	box-shadow: none;
+	border:none;
+	margin:0
+}
+
+#menu-accordeon li:hover {
+	background: #444;
+	color:white;
+}
+#menu-accordeon li li:hover {
+	background: #444;
+	color: white;
+}
+#menu-accordeon ul li:last-child {
+	border-radius: 0 0 6px 6px;
+	border:none;
+}
+#menu-accordeon li:hover li {
+	max-height: 15em;
+}
 #footer-wrapper{
 	border: 2px solid grey;
 	border-radius: 6px;
@@ -2005,7 +2058,7 @@
 		text-decoration: none;
 		border-radius: 6px;
 		padding: 0.75em 0;
-		min-width: 15em;
+		min-width: 13em;
 		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0.25em 0.25em 0.1em rgba(0, 0, 0, 0.025);
 		margin-top: calc(-0.75em + 1px);
 		margin-left: -1px;
