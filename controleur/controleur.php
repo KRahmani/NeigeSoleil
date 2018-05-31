@@ -37,10 +37,16 @@
                 echo "Veuillez renseigner votre nom utilisateur et votre mot de passe";
         }
 
-        public function Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe){
+        public function Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe){
             $unModel = new Model();
-               $unModel->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
+               $unModel->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
                header('Location: index.php');
+        }
+		
+		public function getIdMaxTiers(){
+            $unModel = new Model();
+              $idMax = $unModel->getMaxIdTiers();
+              return $idMax;
         }
 
         public function fetch_appartements($nb){
@@ -85,6 +91,11 @@
             return $tab;
         }
 
+        public function fetch_ContratProp($idProp){
+            $unModel = new Model();
+            $tab = $unModel->fetch_Contrats($idProp);
+            return $tab;
+        }
 
 
 

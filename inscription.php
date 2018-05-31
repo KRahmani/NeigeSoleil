@@ -4,9 +4,11 @@ session_start();
 
 require ("controleur/controleur.php");
 
+
 if(isset($_POST['inscription'])){
     $cont = new Controleur();
-    //
+    
+	$idMax =  $cont->getIdMaxTiers()+1;
     $civilite = $_POST['civilite'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -17,7 +19,7 @@ if(isset($_POST['inscription'])){
     $telephone = $_POST['telephone'];
     $mot_passe = $_POST['mot_passe'];
     //
-    $count = $cont->Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
+    $count = $cont->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
 }
 ?>
 

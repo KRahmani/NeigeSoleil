@@ -1,5 +1,5 @@
 <div class="modal fade fatmodal" id="modalcontacter" tabindex="-1" role="dialog"
-     aria-labelledby="modalDisplayProductLabel" aria-hidden="true">
+     aria-labelledby="modalDisplayProductLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

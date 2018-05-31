@@ -163,3 +163,20 @@ function fetch_appartementsProp($id)
         echo '</div>';
     }
 }
+
+function fetch_contratsProp($id)
+{
+    $cont = new Controleur();
+    $tab = $cont->fetch_ContratProp($id);
+    foreach ($tab as $tab_tmp)
+    {
+        echo "  <tr class='table-success'>
+                    <td>".$tab_tmp['IDC']."</td>
+                    <td>".$tab_tmp['IDAPPARTEMENT']."</td>
+                    <td>".$tab_tmp['DATESIGNATUREC']."</td>                   
+                    <td>".$tab_tmp['DATEDEBUT']."</td>
+                    <td>".$tab_tmp['DATEFIN']."</td> 
+                    <td>".$tab_tmp['ETAT']."</td>                                        
+                </tr>";
+    }
+}

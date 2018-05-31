@@ -9,6 +9,12 @@ class Model
         $this->pdo=null;
         try{
             //PDO est une classe qui permet de se connecter à mysql et donc à la base qu'on veut
+            /*
+            $username = 'dbo739547304';
+            $password = 'Kahina95&';
+            $dbname = "db739547304";
+            $servername = "db739547304.db.1and1.com:3306";
+            */
             $username = 'root';
             $password = 'root';
             $dbname = "NeigeSoleil";
@@ -103,13 +109,13 @@ class Model
             return null;
         }
     }
-    public function Inscription($civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe)
+    public function Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe)
     {
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $maxId = $this->getMaxIdTiers() +1 ;
-            $requete = "INSERT INTO `LOCATAIRE` 
+          
+            $requete = "INSERT INTO `locataire`(IDTIERS, CIVILITE, NOML, PRENOML, ADRESSEL, CODEPOSTAL, VILLE, TEL, EMAIL, MOT_PASSE) 
                         VALUES ('$maxId','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
@@ -254,6 +260,22 @@ class Model
         {
             $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface, C.idTiers"
                 . " from appartement A, info_ville v, contrat_gestion C where A.idville = v.idville and A.idappartement = C.IDAPPARTEMENT and C.idTiers = " . $idProp;
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+	
+	 public function fetch_Contrats($idprop)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select * from contrat_gestion where idtiers = $idprop";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();

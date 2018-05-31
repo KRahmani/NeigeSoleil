@@ -4,6 +4,7 @@ include ("controleur/controleur.php");
 require ("function.php");
 if (!isset($_SESSION["prenom"]))
 {
+    go("connexion.php");
     header("location: connexion.php");
 }
 if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
