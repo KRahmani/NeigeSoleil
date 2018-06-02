@@ -16,7 +16,7 @@ function fetch_appartements_index($nb){
         echo ' <a  class="image featured"><img src="imagesAppartement/' . $tab_tmp["lienphoto"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . $tab_tmp["regionv"] .' / '. $tab_tmp["nomv"] . '</h2>';
+        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
         echo '<button value = "appartement ref : ' . $tab_tmp["idappartement"] . '" class="but_contacter">Réserver</button>';

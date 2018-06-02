@@ -9,17 +9,17 @@ class Model
         $this->pdo=null;
         try{
             //PDO est une classe qui permet de se connecter à mysql et donc à la base qu'on veut
-
-            $username = 'dbo739547304';
+            
+            $username = 'dbo740375814';
             $password = 'Kahina95&';
-            $dbname = "db739547304";
-            $servername = "db739547304.db.1and1.com:3306";
+            $dbname = "db740375814";
+            $servername = "db740375814.db.1and1.com:3306";
             /*
             $username = 'root';
             $password = 'root';
             $dbname = "NeigeSoleil";
-            $servername = "localhost:8889";
-            */
+            $servername = "localhost";
+			*/
             $this->pdo = new PDO("mysql:host=".$servername, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->exec("USE " . $dbname);
@@ -100,32 +100,32 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "select max(IDTIERS) id from TIERS";
+            $requete = "select max(IDTIERS) from TIERS";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $result = $sql->fetch();
-            return $result['id'];
+            return $result;
         }
         else{
             return null;
         }
     }
-    public function Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe)
+    public function Inscription($maxId,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe)
     {
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-
-            $requete = "INSERT INTO `locataire`(IDTIERS, CIVILITE, NOML, PRENOML, ADRESSEL, CODEPOSTAL, VILLE, TEL, EMAIL, MOT_PASSE) 
-                        VALUES ('$idMax','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
+          
+            $requete = "INSERT INTO `LOCATAIRE`(IDTIERS, CIVILITE, NOML, PRENOML, ADRESSEL, CODEPOSTAL, VILLE, TEL, EMAIL, MOT_PASSE) 
+                        VALUES ('$maxId','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $_SESSION["nom"] = $nom;
             $_SESSION["prenom"] = $prenom;
-            return true;
+            echo $maxId;
         }
         else{
-            return false;
+            return null;
         }
     }
 
@@ -135,7 +135,7 @@ class Model
         if ($this->pdo != null)
         {
             $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface"
-           . " from appartement A, info_ville v where  A.idville = v.idville limit " . $nb;
+           . " from APPARTEMENT A, INFO_VILLE v where  A.idville = v.idville limit " . $nb;
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -152,7 +152,7 @@ class Model
                 if ($this->pdo != null)
                 {
                     $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface"
-                        . " from appartement A, info_ville v where A.idville = v.idville";
+                        . " from APPARTEMENT A, INFO_VILLE v where A.idville = v.idville";
                     if ($region != ''){
                         $requete = $requete . " and  v.regionv = '$region'";
                     }
@@ -192,7 +192,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "select * from region";
+            $requete = "select * from REGION";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -260,7 +260,7 @@ class Model
         if ($this->pdo != null)
         {
             $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface, C.idTiers"
-                . " from appartement A, info_ville v, contrat_gestion C where A.idville = v.idville and A.idappartement = C.IDAPPARTEMENT and C.idTiers = " . $idProp;
+                . " from APPARTEMENT A, INFO_VILLE v, CONTRAT_GESTION C where A.idville = v.idville and A.idappartement = C.IDAPPARTEMENT and C.idTiers = " . $idProp;
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -276,7 +276,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "select * from contrat_gestion where idtiers = $idprop";
+            $requete = "select * from CONTRAT_GESTION where idtiers = $idprop";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -287,13 +287,12 @@ class Model
         }
     }
 
-
-    public function fetch_StatAppar($idprop)
+	    public function fetch_StatAppar($idprop)
     {
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "SELECT vuenbresappart.*, appartement.* FROM vuenbresappart join appartement on appartement = appartement.IDAPPARTEMENT WHERE  PROPRIETAIRE = $idprop ";
+            $requete = "SELECT VUENBRESAPPART.*, APPARTEMENT.* FROM VUENBRESAPPART join APPARTEMENT on APPARTEMENT = APPARTEMENT.IDAPPARTEMENT WHERE  PROPRIETAIRE = $idprop ";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -309,7 +308,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "SELECT * FROM vuenbmateriel WHERE PROPRIETAIRE = $idprop";
+            $requete = "SELECT * FROM  VUENBMATERIEL WHERE PROPRIETAIRE = $idprop";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -324,7 +323,7 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "SELECT R.DATEDEBUT, R.DATEFIN, R.IDR FROM reservation R, contrat_gestion A, proprietaire P	 WHERE R.IDAPPARTEMENT = $idAppart AND A.IDTIERS = P.IDTIERS AND A.IDTIERS = $idprop";
+            $requete = "SELECT R.DATEDEBUT, R.DATEFIN, R.IDR FROM RESERVATION R, CONTRAT_GESTION A, PROPRIETAIRE P	 WHERE R.IDAPPARTEMENT = $idAppart AND A.IDTIERS = P.IDTIERS AND A.IDTIERS = $idprop";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $results = $sql->fetchAll();
@@ -349,5 +348,7 @@ class Model
             return null;
         }
     }
+
+
 
 }
