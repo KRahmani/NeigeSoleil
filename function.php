@@ -13,10 +13,10 @@ function fetch_appartements_index($nb){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . $tab_tmp["lienphoto"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<h2>' . $tab_tmp["regionv"] .' / '. $tab_tmp["nomv"] . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
         echo '<button value = "appartement ref : ' . $tab_tmp["idappartement"] . '" class="but_contacter">Réserver</button>';
@@ -34,10 +34,10 @@ function fetch_appartements_accueil($nb){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . $tab_tmp["lienphoto"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<h2>' . $tab_tmp["regionv"] .' / '. $tab_tmp["nomv"] . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
         echo ' </header>';
@@ -53,10 +53,10 @@ function fetch_appartements_Research(){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . $tab_tmp["lienphoto"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<h2>' . $tab_tmp["regionv"] .' / '. $tab_tmp["nomv"] . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
         echo '<button value = "appartement ref : ' . $tab_tmp["IDAPPARTEMENT"] . '" class="but_contacter">Réserver</button>';
@@ -66,6 +66,7 @@ function fetch_appartements_Research(){
         echo '</div>';
     }
 }
+
 function fetch_Region_index(){
     $cont = new Controleur();
     $tab = $cont->fetch_Region();
@@ -73,7 +74,7 @@ function fetch_Region_index(){
     echo '<option value = "" disabled selected>Region</option>';
     foreach ($tab as $tab_tmp)
     {
-        echo '<option value ="' .  utf8_encode($tab_tmp["NOMR"]) .  '" >' . utf8_encode($tab_tmp["NOMR"]) . '</option>';
+        echo '<option value ="' .  $tab_tmp["NOMR"] .  '" >' . $tab_tmp["NOMR"] . '</option>';
     }
 
     echo '</select>';
@@ -86,12 +87,12 @@ function fetch_Equipement_index($nb){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . utf8_encode($tab_tmp["image"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["image"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["TYPEM"]) .'</h2>';
-        echo '<p>' . utf8_encode($tab_tmp['ETAT']) .'</p>';
-        echo '<p>' . utf8_encode($tab_tmp['PRIX']).' Euros' . '</p>';
+        echo '<h2>' . $tab_tmp["TYPEM"] .'</h2>';
+        echo '<p>' . $tab_tmp['ETAT'] .'</p>';
+        echo '<p>' . $tab_tmp['PRIX'].' Euros' . '</p>';
         echo '<button value = "équipement ref : ' . $tab_tmp["IDMATERIEL"] . '" class="but_contacter">Réserver</button>';
         echo ' </header>';
         echo '</div>';
@@ -107,12 +108,12 @@ function fetch_EquipementWithRecherche_index($donnee){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . utf8_encode($tab_tmp["image"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["image"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["TYPEM"]) .'</h2>';
-        echo '<p>' . utf8_encode($tab_tmp['ETAT']) .'</p>';
-        echo '<p>' . utf8_encode($tab_tmp['PRIX']).' Euros' . '</p>';
+        echo '<h2>' . $tab_tmp["TYPEM"] .'</h2>';
+        echo '<p>' . $tab_tmp['ETAT'] .'</p>';
+        echo '<p>' . $tab_tmp['PRIX'].' Euros' . '</p>';
         echo '<button value = "équipement ref : ' . $tab_tmp["IDMATERIEL"] . '" class="but_contacter">Réserver</button>';
         echo ' </header>';
         echo '</div>';
@@ -128,13 +129,13 @@ function fetch_EquipementProp_index($idProp){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . utf8_encode($tab_tmp["IMAGE"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["IMAGE"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["TYPEM"]) .'</h2>';
-        echo '<p>' . utf8_encode($tab_tmp['ETAT']) .'</p>';
-        echo '<p>' . utf8_encode($tab_tmp['PRIX']).' Euros' . '</p>';
-        echo '<button value = "materiel ref : ' . $tab_tmp["IDMATERIEL"] . '" class="but_contacter">Infos</button>';
+        echo '<h2>' . $tab_tmp["TYPEM"] .'</h2>';
+        echo '<p>' . $tab_tmp['ETAT'] .'</p>';
+        echo '<p>' . $tab_tmp['PRIX'].' Euros' . '</p>';
+        echo '<button value = "materiel ref : ' . $tab_tmp["IDMATERIEL"] . '" onclick="getInfoEqui(' . $idProp . ',' . $tab_tmp["IDMATERIEL"] . ')" >Infos</button>';
         echo ' </header>';
         echo '</div>';
         echo '</section>';
@@ -150,13 +151,13 @@ function fetch_appartementsProp($id)
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesAppartement/' . utf8_encode($tab_tmp["lienphoto"]) . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesAppartement/' . $tab_tmp["lienphoto"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
-        echo '<h2>' . utf8_encode($tab_tmp["regionv"]) .' / '. utf8_encode($tab_tmp["nomv"]) . '</h2>';
+        echo '<h2>' . $tab_tmp["regionv"] .' / '. $tab_tmp["nomv"] . '</h2>';
         echo '<p>' . $tab_tmp['typeappart'] .' / ' . $tab_tmp["surface"] .'m²'  .'</p>';
         echo '<p>' . $tab_tmp['prix_base'].' Euros' . '</p>';
-        echo '<button value = "appartement ref : ' . $tab_tmp["IDAPPARTEMENT"] . '" class="but_contacter">Infos</button>';
+        echo '<button value = "appartement ref : ' . $tab_tmp["idappartement"] . '" onclick="getInfo(' . $id . ',' . $tab_tmp["idappartement"] . ')">Infos</button>';
         echo ' </header>';
         echo '</div>';
         echo '</section>';
@@ -177,6 +178,36 @@ function fetch_contratsProp($id)
                     <td>".$tab_tmp['DATEDEBUT']."</td>
                     <td>".$tab_tmp['DATEFIN']."</td> 
                     <td>".$tab_tmp['ETAT']."</td>                                        
+                </tr>";
+    }
+}
+
+function fetch_StatAppar($id)
+{
+    $cont = new Controleur();
+    $tab = $cont->fetch_StatAppar($id);
+    foreach ($tab as $tab_tmp)
+    {
+        echo "  <tr class='table-success'>
+                    <td>".$tab_tmp['ANNEE']."</td>
+                    <td>".$tab_tmp['APPARTEMENT']."</td>
+                    <td>".$tab_tmp['ADRESSEAPP']. " " . $tab_tmp['CODEPOSTAL']. "</td>                   
+                    <td>".$tab_tmp['NBRESERVATIONS']."</td>                                      
+                </tr>";
+    }
+}
+
+function fetch_StatEqui($id)
+{
+    $cont = new Controleur();
+    $tab = $cont->fetch_StatEqui($id);
+    foreach ($tab as $tab_tmp)
+    {
+        echo "  <tr class='table-success'>
+                    <td>".$tab_tmp['annee']."</td>
+                    <td>".$tab_tmp['mois']."</td>
+                    <td>".$tab_tmp['materiel']."</td>                   
+                    <td>".$tab_tmp['nbReservation']."</td>                                      
                 </tr>";
     }
 }

@@ -9,16 +9,17 @@ class Model
         $this->pdo=null;
         try{
             //PDO est une classe qui permet de se connecter à mysql et donc à la base qu'on veut
-            /*
+
             $username = 'dbo739547304';
             $password = 'Kahina95&';
             $dbname = "db739547304";
             $servername = "db739547304.db.1and1.com:3306";
-            */
+            /*
             $username = 'root';
             $password = 'root';
             $dbname = "NeigeSoleil";
-            $servername = "localhost";
+            $servername = "localhost:8889";
+            */
             $this->pdo = new PDO("mysql:host=".$servername, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->exec("USE " . $dbname);
@@ -99,11 +100,11 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-            $requete = "select max(IDTIERS) from TIERS";
+            $requete = "select max(IDTIERS) id from TIERS";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $result = $sql->fetch();
-            return $result;
+            return $result['id'];
         }
         else{
             return null;
@@ -114,17 +115,17 @@ class Model
         $this->connexion_bdd();
         if ($this->pdo != null)
         {
-          
+
             $requete = "INSERT INTO `locataire`(IDTIERS, CIVILITE, NOML, PRENOML, ADRESSEL, CODEPOSTAL, VILLE, TEL, EMAIL, MOT_PASSE) 
-                        VALUES ('$maxId','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
+                        VALUES ('$idMax','$civilite', '$nom', '$prenom', '$address', '$code_postal', '$ville', '$telephone', '$mail', '$mot_passe')";
             $sql = $this->pdo->prepare($requete);
             $sql->execute();
             $_SESSION["nom"] = $nom;
             $_SESSION["prenom"] = $prenom;
-            echo $maxId;
+            return true;
         }
         else{
-            return null;
+            return false;
         }
     }
 
@@ -287,6 +288,66 @@ class Model
     }
 
 
+    public function fetch_StatAppar($idprop)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "SELECT vuenbresappart.*, appartement.* FROM vuenbresappart join appartement on appartement = appartement.IDAPPARTEMENT WHERE  PROPRIETAIRE = $idprop ";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
 
+    public function fetch_StatEquim($idprop)
+    {
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "SELECT * FROM vuenbmateriel WHERE PROPRIETAIRE = $idprop";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public function fetchInfo($idprop,$idAppart){
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "SELECT R.DATEDEBUT, R.DATEFIN, R.IDR FROM reservation R, contrat_gestion A, proprietaire P	 WHERE R.IDAPPARTEMENT = $idAppart AND A.IDTIERS = P.IDTIERS AND A.IDTIERS = $idprop";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public function fetchInfoEqui($idprop,$idEqui){
+        $this->connexion_bdd();
+        if ($this->pdo != null)
+        {
+            $requete = "select L.IDR, L.QUANTITE from LOUER L, MATERIEL M where L.IDMATERIEL = M.IDMATERIEL  and M.IDTIERS = $idprop and L.IDMATERIEL = $idEqui";
+            $sql = $this->pdo->prepare($requete);
+            $sql->execute();
+            $results = $sql->fetchAll();
+            return $results;
+        }
+        else{
+            return null;
+        }
+    }
 
 }

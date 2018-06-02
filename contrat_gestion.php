@@ -8,7 +8,7 @@ require("function.php");
 <?php require ("head.php");?>
 
 <body>
-<?php require ("header.php");?>
+<?php require ("header.php"); ?>
 <div>
     <h1 id="Welcome_name">Mes contrats de gestion</h1>
     <div id="tableau_contrats">
@@ -35,5 +35,9 @@ require("function.php");
 </div>
 
 <?php require("footer.php"); ?>
+<?php require ("script_js.php");?>
+<script>
+    set_currentPage("connexion");
+</script>
 </body>
 </html>

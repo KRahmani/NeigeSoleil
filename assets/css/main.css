@@ -6,6 +6,12 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+#close-modal {
+	top: 1.5px !important  ;
+	right: 0.5px !important  ;
+}
+
 #menu-accordeon {
 	padding:0;
 	margin:0;

@@ -1,14 +1,14 @@
 <?php
 require ("header_main.php");
-session_start();
+
 
 require ("controleur/controleur.php");
 
 
 if(isset($_POST['inscription'])){
     $cont = new Controleur();
-    
-	$idMax =  $cont->getIdMaxTiers()+1;
+
+	$idMax =  $cont->getIdMaxTiers() + 1;
     $civilite = $_POST['civilite'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -19,16 +19,14 @@ if(isset($_POST['inscription'])){
     $telephone = $_POST['telephone'];
     $mot_passe = $_POST['mot_passe'];
     //
-    $count = $cont->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
+    $cont->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
+    ?>
+    <script>alert("Vous étes bien inscrit \n Bienvenue sur Neige & Soleil !! ")</script>
+    <?php
 }
 ?>
 
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CC   A 3.0 license (html5up.net/license)
--->
 <html>
 <?php require ("head.php");?>
 <body>

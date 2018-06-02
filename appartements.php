@@ -4,7 +4,7 @@ include ("controleur/controleur.php");
 require ("function.php");
 if (!isset($_SESSION["prenom"]))
 {
-    go("connexion.php");
+    //go("connexion.php");
     header("location: connexion.php");
 }
 if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
@@ -36,7 +36,7 @@ if (isset($_SESSION["prenom"]) && isset($_SESSION["type"])
                         <input name="dateFin" id="get_date_fin" type="date" data-toggle="datepicker" class="form-control" placeholder="Date" required="">
                     </div>
                     <?php
-                    fetch_Region_index();
+                        fetch_Region_index();
                     ?>
                     <div  style = "display: inline-block;" class="form-group 1u">
                         <input name = "prixMax" type="text" class="form-control" placeholder="Prix Max">

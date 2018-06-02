@@ -39,8 +39,9 @@
 
         public function Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe){
             $unModel = new Model();
-               $unModel->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
-               header('Location: index.php');
+               $reponse = $unModel->Inscription($idMax,$civilite,$nom,$prenom,$mail,$address,$code_postal,$ville,$telephone,$mot_passe);
+                if ($reponse)
+                    header('Location: index.php');
         }
 		
 		public function getIdMaxTiers(){
@@ -97,7 +98,17 @@
             return $tab;
         }
 
+        public function fetch_StatAppar($idProp){
+            $unModel = new Model();
+            $tab = $unModel->fetch_StatAppar($idProp);
+            return $tab;
+        }
 
+        public function fetch_StatEqui($idProp){
+            $unModel = new Model();
+            $tab = $unModel->fetch_StatEquim($idProp);
+            return $tab;
+        }
 
 	}
 

@@ -1,6 +1,5 @@
 <?php
 require ("header_main.php");
-session_start();
 
 require ("controleur/controleur.php");
 
@@ -18,11 +17,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 ?>
 
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CC   A 3.0 license (html5up.net/license)
--->
+
 <html>
 <?php require ("head.php");?>
 <body>

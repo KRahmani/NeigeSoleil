@@ -3,8 +3,18 @@
             <!-- zone de connexion -->
             <form method ="post" action="">
                 <div style="text-align: center;">
-                Mr <input  type="radio" name="mr" value="mr" checked>
-                Mme <input  type="radio" name= "mme" value="mme">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="civilite" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Mr
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="civilite" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Mme
+                        </label>
+                    </div>
                 </div>
                 <label id = "name_user"><b>Nom</b></label>
                 <input  type="text" placeholder="Nom" name="nom" required>

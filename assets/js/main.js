@@ -8,6 +8,32 @@
 //les fonctions pour les coockies
 //pour l'user profil
 
+function getInfo(idProp, idApp){
+    $.post( "GetInfo.php", {id_prop: idProp, id_app: idApp},function( data ) {
+    	let dataJson = JSON.parse(data);
+    	var Div = "";
+        $.each(dataJson, function (i, fb) {
+            Div = Div + "<tr class='table-success'> <td colspan='2'> " +  fb.DATEDEBUT + "</td><td colspan='2'>" +  fb.DATEFIN + "</td><td> " + fb.IDR + "</td></tr>";
+        });
+        $("#bodyInfo").empty();
+        $("#bodyInfo").append(Div);
+        $('#modalinformation').modal("show");
+    });
+}
+
+function getInfoEqui(idProp, idEqui){
+    $.post( "GetInfo.php", {id_prop: idProp, id_equi: idEqui},function( data ) {
+        let dataJson = JSON.parse(data);
+        var Div = "";
+        $.each(dataJson, function (i, fb) {
+            Div = Div + "<tr class='table-success'> <td colspan='2'> " +  fb.IDR  + "</td><td colspan='2'>" +  fb.QUANTITE + "</td>";
+        });
+        $("#bodyInfoEqui").empty();
+        $("#bodyInfoEqui").append(Div);
+        $('#modalinformationEqui').modal("show");
+    });
+}
+
 //pour récupérer un coockie
 function getCookie(cname) {
     var name = cname + "=";
@@ -64,6 +90,13 @@ $(document).ready( function () {
         var text = "Bonjour, Je vous contacte pour votre " + this.value;
 		$("#contact_area").val(text);
         $('#modalcontacter').modal("show");
+    });
+
+    $(".but_information").click(function () {
+        //ce que tu veux faire quand il clique sur contacter
+        //ce qui veut dire afficher le modal pour contacter
+        console.log(this.value);
+        $('#modalinformation').modal("show");
     });
 });
 
