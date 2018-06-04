@@ -36,7 +36,7 @@ if(isset($_POST['inscription'])){
         <h1 id ="title_locataire">Inscription locataire</h1>
         <div class="container">
 
-            <div id="container_connexion">
+            <div id="container_connexion" class="col-md-6">
                 <!-- Content -->
                 <article>
                     <?php include("vue/vueInscription.php"); ?>

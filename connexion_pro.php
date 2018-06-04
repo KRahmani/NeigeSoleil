@@ -25,8 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <!-- Main -->
     <div id="main-wrapper"><h1 id ="title_locataire">Je suis propriétaire</h1>
         <div class="container">
-
-            <div id="container_connexion">
+            <div id="container_connexion" class="col-md-6">
 
                 <!-- Content -->
                 <article>

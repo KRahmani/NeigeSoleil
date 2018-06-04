@@ -34,6 +34,8 @@
                 <input  type="password" placeholder="******"  name="mot passe" required>
                 <label><b>Confirmation de mot de passe</b></label>
                 <input  type="password" placeholder="******" name="con mot de passe" required>
-                <input name = "inscription" style = "padding: 0.1em 1.9em;margin: 9% 20% 0% 20%;" type="submit" id='' value='Inscription' >
+				<div style= "text-align: center;">
+					<input name = "inscription" style = "padding: 0.1em 1.9em;" type="submit" id='' value='Inscription' >
+				</div>
             </form>
         </div>

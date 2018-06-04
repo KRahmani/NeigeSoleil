@@ -30,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <div id="main-wrapper"><h1 id ="title_locataire">Je suis locataire</h1>
         <div class="container">
 
-            <div id="container_connexion">
+            <div id="container_connexion" class="col-md-6">
 
                 <!-- Content -->
                 <article>

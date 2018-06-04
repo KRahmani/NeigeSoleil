@@ -21,7 +21,7 @@
                     <li id="equipements"><a href="equipements.php">Équipements</a></li>
                     <li id="aproposdenous"><a>À propos de Nous</a></li>
                     <li id="connexion">
-                        <?php if ($_SESSION["type"] == "proprietaire" && isset($_SESSION["prenom"]))
+                        <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "proprietaire" && isset($_SESSION["prenom"]))
                         {
                             echo '<a> <i class="fa fa-user" aria-hidden="false"></i>';
                             echo $_SESSION["prenom"] . '</a>';

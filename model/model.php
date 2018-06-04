@@ -151,7 +151,7 @@ class Model
                 $this->connexion_bdd();
                 if ($this->pdo != null)
                 {
-                    $requete = "select A.idappartement, v.nomv, v.regionv, A.prix_base, A.lienphoto, A.typeappart, A.surface"
+                    $requete = "select A.IDAPPARTEMENT, v.NOMV, v.REGIONV, A.PRIX_BASE, A.LIENPHOTO, A.TYPEAPPART, A.SURFACE"
                         . " from APPARTEMENT A, INFO_VILLE v where A.idville = v.idville";
                     if ($region != ''){
                         $requete = $requete . " and  v.regionv = '$region'";
@@ -166,7 +166,7 @@ class Model
                         $requete = $requete . " and capacite_accueil >= $nbPersonne";
                     }
                     if ($dateDeb != '' && $dateFin != ''){
-                        $requete = $requete . " and (select count(IDR) from reservation where (datedebut >= '$dateDeb' and datefin <= '$dateFin')"
+                        $requete = $requete . " and (select count(IDR) from RESERVATION where (datedebut >= '$dateDeb' and datefin <= '$dateFin')"
                             . " or (datedebut between '$dateDeb' and '$dateFin') or (datedebut >= '$dateDeb' and datefin >= '$dateFin')) = 0";
                     }
                     $donnees= array(

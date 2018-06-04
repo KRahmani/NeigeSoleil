@@ -111,12 +111,13 @@
 /*for connexion */
 
 #container_connexion{
-	width: 35%;
+	/*width: 35%;*/
 	margin: auto;
-	background: #efefefb5;
+	background: rgba(239, 239, 239, 0.7098039215686275);
 	padding: 4%;
 	border-radius: 10px;
 }
+
 #container_connexion b{
 	font-size: 20px;
 }
@@ -2154,7 +2155,7 @@
 				margin-bottom: 0;
 				font-size: 30px;
 				color: white;
-				background: #008000b3;
+				background: rgba(0, 128, 0, 0.7019607843137254);
 			}
 
 		#banner ul {

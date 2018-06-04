@@ -87,7 +87,7 @@ function fetch_Equipement_index($nb){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["image"] . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["IMAGE"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
         echo '<h2>' . $tab_tmp["TYPEM"] .'</h2>';
@@ -108,7 +108,7 @@ function fetch_EquipementWithRecherche_index($donnee){
     {
         echo '<div class="4u 12u(medium)">';
         echo '<section class="box feature">';
-        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["image"] . '.jpg" alt="" /></a>';
+        echo ' <a  class="image featured"><img src="imagesMateriel/' . $tab_tmp["IMAGE"] . '.jpg" alt="" /></a>';
         echo '<div class="inner">';
         echo ' <header>';
         echo '<h2>' . $tab_tmp["TYPEM"] .'</h2>';

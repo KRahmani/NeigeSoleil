@@ -55,8 +55,8 @@ require ("header_main.php");
                             <h3>Louez & Profitez</h3>
                             <div class="grid">
                                 <div class="row 50%">
-                                    <div class="6u"><a href="#" class="image fit"><img src="https://www.alpbachtal.at/website/var/tmp/image-thumbnails/10000/12082/thumb__gallery-large__wide/skifahrer-rote-jacke-blickt-auf-berge-ski-juwel-alpbachtal-wildschoanau.jpeg" alt="" /></a></div>
-                                    <div class="6u"><a href="#" class="image fit"><img src="https://www.wur.nl/upload_mm/8/6/a/ad5911bf-d3dd-4f76-b8c9-104bdf29cd95_Wintersport3.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/more1.jpg" alt="" /></a></div>
+                                    <div class="6u"><a href="#" class="image fit"><img src="images/more2.jpeg" alt="" /></a></div>
                                 </div>
                             </div>
                             <a href="appartements.php" class="button icon fa-file-text-o">More</a>
